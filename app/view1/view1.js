@@ -9,6 +9,8 @@ angular.module('courseComparator.view1', ['ngRoute'])
   });
 }])
 
-.controller('View1Ctrl', [function() {
-
+.controller('View1Ctrl', ['$scope', '$http', function($scope, $http) {
+  $http.get('data/data.json').success(function (data) {
+    this.courses = data;
+  });
 }]);
