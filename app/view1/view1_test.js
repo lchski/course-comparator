@@ -11,7 +11,18 @@ describe('courseComparator.view1 module', function() {
       $httpBackend = _$httpBackend_;
       $httpBackend
         .expectGET('data/data.json')
-        .respond(['HIS': ]);
+        .respond({
+          "HIS": [
+            {
+              "code": "HIS1101",
+              "description": "Survey of the political, social and cultural evolution of Canada, from its origins to the present.",
+              "language": "English",
+              "restriction": "",
+              "title": "The Making of Canada",
+              "year": "1"
+            }
+          ]
+        });
 
       scope = $rootScope.$new();
       ctrl = $controller('View1Ctrl', {$scope: scope});
@@ -22,7 +33,22 @@ describe('courseComparator.view1 module', function() {
     }));
 
     it('should have data', inject(function() {
-      expect(scope).toBeDefined();
+      expect(scope.courses).toBeUndefined();
+
+      $httpBackend.flush();
+
+      expect(scope.courses).toEqual({
+        "HIS": [
+          {
+            "code": "HIS1101",
+            "description": "Survey of the political, social and cultural evolution of Canada, from its origins to the present.",
+            "language": "English",
+            "restriction": "",
+            "title": "The Making of Canada",
+            "year": "1"
+          }
+        ]
+      });
     }));
 
   });
