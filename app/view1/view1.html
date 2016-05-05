@@ -1,0 +1,6 @@
+<table ng-repeat="discipline in disciplinesAndCourses">
+    <tr ng-repeat="course in discipline | orderBy:orderProp">
+        <td>{{ course.code }}</td>
+        <td>{{ course.title }}</td>
+    </tr>
+</table>

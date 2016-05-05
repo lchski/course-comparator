@@ -13,4 +13,6 @@ angular.module('courseComparator.view1', ['ngRoute'])
   $http.get('data/data.json').success(function (data) {
     $scope.disciplinesAndCourses = data;
   });
+
+  $scope.orderProp = 'code';
 }]);
