@@ -52,7 +52,7 @@ describe('courseComparator.view1 module', function() {
     }));
 
     it('should sort by course code', inject(function() {
-      expect(scope.orderProp).toEqual('code');
+      expect(scope.orderProp).toEqual(['code']);
     }));
 
   });
