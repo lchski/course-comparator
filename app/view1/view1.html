@@ -1,7 +1,8 @@
 <div ng-repeat="(discipline, courses) in disciplinesAndCourses">
     <h2>{{ discipline }}</h2>
+    <input ng-model="query">
     <table>
-        <tr ng-repeat="course in courses | orderBy:orderProp">
+        <tr ng-repeat="course in courses | filter:query | orderBy:orderProp">
             <td>{{ course.code }}</td>
             <td>{{ course.title }}</td>
         </tr>
