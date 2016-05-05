@@ -1,10 +1,10 @@
 'use strict';
 
-describe('courseComparator.view1 module', function() {
+describe('courseComparator.disciplines module', function() {
 
-  beforeEach(module('courseComparator.view1'));
+  beforeEach(module('courseComparator.disciplines'));
 
-  describe('view1 controller', function(){
+  describe('disciplines controller', function(){
     var scope, ctrl, $httpBackend;
 
     beforeEach(inject(function(_$httpBackend_, $rootScope, $controller) {
