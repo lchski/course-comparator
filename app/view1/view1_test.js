@@ -33,11 +33,11 @@ describe('courseComparator.view1 module', function() {
     }));
 
     it('should have data', inject(function() {
-      expect(scope.courses).toBeUndefined();
+      expect(scope.disciplinesAndCourses).toBeUndefined();
 
       $httpBackend.flush();
 
-      expect(scope.courses).toEqual({
+      expect(scope.disciplinesAndCourses).toEqual({
         "HIS": [
           {
             "code": "HIS1101",

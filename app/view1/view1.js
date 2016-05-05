@@ -11,6 +11,6 @@ angular.module('courseComparator.view1', ['ngRoute'])
 
 .controller('View1Ctrl', ['$scope', '$http', function($scope, $http) {
   $http.get('data/data.json').success(function (data) {
-    $scope.courses = data;
+    $scope.disciplinesAndCourses = data;
   });
 }]);
