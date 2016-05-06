@@ -25,7 +25,7 @@ describe('courseComparator.disciplines module', function() {
         });
 
       scope = $rootScope.$new();
-      ctrl = $controller('View1Ctrl', {$scope: scope});
+      ctrl = $controller('DisciplinesCtrl', {$scope: scope});
     }));
 
     it('should ....', inject(function() {
