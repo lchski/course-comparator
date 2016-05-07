@@ -10,6 +10,6 @@ angular.module('courseComparator', [
 config(['$routeProvider', function($routeProvider) {
   $routeProvider
       .otherwise({
-        redirectTo: '/disciplines'
+        redirectTo: '/'
       });
 }]);

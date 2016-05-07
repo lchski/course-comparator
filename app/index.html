@@ -9,9 +9,8 @@
   <link rel="stylesheet" href="https://npmcdn.com/tachyons@4.0.0-beta.24/css/tachyons.min.css">
 </head>
 <body class="pa4">
-  <ul class="list pa0">
-    <li class="dib">Nav:</li>
-    <li class="dib"><a href="/app/">Disciplines</a></li>
+  <ul class="list pa0" ng-controller="DisciplinesCtrl">
+    <li class="dib ml1" ng-repeat="discipline in disciplines"><a href="#/disciplines/{{ discipline }}">{{ discipline }}</a></li>
   </ul>
 
   <div ng-view></div>
