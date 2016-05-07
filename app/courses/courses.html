@@ -1,1 +1,16 @@
-{{ disciplineId }}
+<h2>{{ disciplineId }}</h2>
+<input ng-model="query">
+<table>
+    <thead>
+    <tr>
+        <th class="b tl pv1 ph2">Code</th>
+        <th class="b tl pv1 ph2">Title</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="course in courses | filter:query | orderBy:orderProp">
+        <td class="code pv1 ph2">{{ course.code }}</td>
+        <td class="pv1 ph2">{{ course.title }}</td>
+    </tr>
+    </tbody>
+</table>

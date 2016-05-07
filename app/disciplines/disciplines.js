@@ -10,9 +10,7 @@ angular.module('courseComparator.disciplines', ['ngRoute'])
 }])
 
 .controller('DisciplinesCtrl', ['$scope', '$http', function($scope, $http) {
-  $http.get('data/data.json').success(function (data) {
-    $scope.disciplinesAndCourses = data;
+  $http.get('data/disciplines.json').success(function (data) {
+    $scope.disciplines = data;
   });
-
-  $scope.orderProp = ['code'];
 }]);

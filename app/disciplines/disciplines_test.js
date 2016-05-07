@@ -10,19 +10,8 @@ describe('courseComparator.disciplines module', function() {
     beforeEach(inject(function(_$httpBackend_, $rootScope, $controller) {
       $httpBackend = _$httpBackend_;
       $httpBackend
-        .expectGET('data/data.json')
-        .respond({
-          "HIS": [
-            {
-              "code": "HIS1101",
-              "description": "Survey of the political, social and cultural evolution of Canada, from its origins to the present.",
-              "language": "English",
-              "restriction": "",
-              "title": "The Making of Canada",
-              "year": "1"
-            }
-          ]
-        });
+        .expectGET('data/disciplines.json')
+        .respond(['TES', 'FOO']);
 
       scope = $rootScope.$new();
       ctrl = $controller('DisciplinesCtrl', {$scope: scope});
@@ -33,26 +22,11 @@ describe('courseComparator.disciplines module', function() {
     }));
 
     it('should have data', inject(function() {
-      expect(scope.disciplinesAndCourses).toBeUndefined();
+      expect(scope.disciplines).toBeUndefined();
 
       $httpBackend.flush();
 
-      expect(scope.disciplinesAndCourses).toEqual({
-        "HIS": [
-          {
-            "code": "HIS1101",
-            "description": "Survey of the political, social and cultural evolution of Canada, from its origins to the present.",
-            "language": "English",
-            "restriction": "",
-            "title": "The Making of Canada",
-            "year": "1"
-          }
-        ]
-      });
-    }));
-
-    it('should sort by course code', inject(function() {
-      expect(scope.orderProp).toEqual(['code']);
+      expect(scope.disciplines).toEqual(['TES', 'FOO']);
     }));
 
   });
