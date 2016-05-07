@@ -33,6 +33,6 @@ angular.module('courseComparator.courses', ['ngRoute', 'LocalStorageModule'])
         $scope.toggleInterest = function(courseCode, e) {
             e.preventDefault();
 
-            console.log(e);
+            console.log(_.findWhere($scope.courses, {code: courseCode}));
         };
     }]);
