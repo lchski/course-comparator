@@ -11,8 +11,8 @@ describe('courseComparator.courses module', function() {
             $httpBackend = _$httpBackend_;
             $httpBackend
                 .expectGET('data/TES.json')
-                .respond([
-                    {
+                .respond({
+                    "TES1101": {
                         "code": "TES1101",
                         "description": "A test course.",
                         "language": "English",
@@ -20,7 +20,7 @@ describe('courseComparator.courses module', function() {
                         "title": "Test Course",
                         "year": "1"
                     }
-                ]);
+                });
 
             scope = $rootScope.$new();
             ctrl = $controller('CoursesCtrl', {
@@ -44,8 +44,8 @@ describe('courseComparator.courses module', function() {
 
             $httpBackend.flush();
 
-            expect(scope.courses).toEqual([
-                {
+            expect(scope.courses).toEqual({
+                "TES1101": {
                     "code": "TES1101",
                     "description": "A test course.",
                     "language": "English",
@@ -53,7 +53,7 @@ describe('courseComparator.courses module', function() {
                     "title": "Test Course",
                     "year": "1"
                 }
-            ]);
+            });
         }));
 
         it('should sort by course code', inject(function() {
