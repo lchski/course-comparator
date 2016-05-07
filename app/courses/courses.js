@@ -17,4 +17,10 @@ angular.module('courseComparator.courses', ['ngRoute'])
         });
 
         $scope.orderProp = ['code'];
+
+        $scope.toggleInterest = function(e) {
+            e.preventDefault();
+
+            console.log(e);
+        };
     }]);

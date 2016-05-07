@@ -10,7 +10,5 @@ angular.module('courseComparator.interests', ['ngRoute'])
     }])
 
     .controller('InterestsCtrl', ['$scope', function($scope) {
-        $scope.toggleInterest = function() {
-
-        };
+        
     }]);

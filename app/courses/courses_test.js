@@ -60,5 +60,9 @@ describe('courseComparator.courses module', function() {
             expect(scope.orderProp).toEqual(['code']);
         }));
 
+        it('should have a toggle interest function', inject(function() {
+            expect(scope.toggleInterest).toBeDefined();
+        }));
+
     });
 });

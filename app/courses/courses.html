@@ -1,5 +1,5 @@
 <h2>{{ disciplineId }}</h2>
-<input ng-model="search.$">
+<input ng-model="search.$" placeholder="General search...">
 <select ng-model="search.language">
     <option value="">---No language filter---</option>
     <option value="English">English</option>
@@ -13,6 +13,7 @@
     <option value="3">3</option>
     <option value="4">4</option>
 </select>
+{{ filteredCourses.length }} courses found
 <table>
     <thead>
     <tr>
@@ -21,10 +22,11 @@
     </tr>
     </thead>
     <tbody>
-    <tr ng-repeat="course in courses | filter:search:strict | orderBy:orderProp">
+    <tr ng-repeat="course in courses | filter:search:strict | orderBy:orderProp as filteredCourses">
         <td class="code pv1 ph2 v-top">{{ course.code }}</td>
         <td class="pv1 ph2 v-top w-20">{{ course.title }}</td>
         <td class="pv1 ph2 v-top">{{ course.description }}</td>
+        <td><a href="#" ng-click="toggleInterest($event)">Interested?</a></td>
     </tr>
     </tbody>
 </table>

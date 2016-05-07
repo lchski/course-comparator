@@ -41,9 +41,5 @@ describe('courseComparator.interests module', function() {
             ]);
         }));
 
-        it('should have a toggle interest function', inject(function() {
-            expect(scope.toggleInterest).toBeDefined();
-        }));
-
     });
 });
