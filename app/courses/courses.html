@@ -1,5 +1,18 @@
 <h2>{{ disciplineId }}</h2>
-<input ng-model="query">
+<input ng-model="search.$">
+<select ng-model="search.language">
+    <option value="">---No language filter---</option>
+    <option value="English">English</option>
+    <option value="French">French</option>
+    <option value="Bilingual/Unofficial/Unspecified">Bilingual/Unofficial/Unspecified</option>
+</select>
+<select ng-model="search.year">
+    <option value="">---No year filter---</option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+</select>
 <table>
     <thead>
     <tr>
@@ -8,7 +21,7 @@
     </tr>
     </thead>
     <tbody>
-    <tr ng-repeat="course in courses | filter:query | orderBy:orderProp">
+    <tr ng-repeat="course in courses | filter:search:strict | orderBy:orderProp">
         <td class="code pv1 ph2">{{ course.code }}</td>
         <td class="pv1 ph2">{{ course.title }}</td>
     </tr>
