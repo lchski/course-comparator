@@ -17,13 +17,15 @@
 <table>
     <thead>
     <tr>
-        <th class="b tl pv1 ph2">Code</th>
-        <th class="b tl pv1 ph2">Title</th>
+        <th class="b tl pv1 ph2 bg-near-white">Code</th>
+        <th class="b tl pv1 ph2 bg-near-white">Title</th>
+        <th class="b tl pv1 ph2 bg-near-white">Description</th>
+        <th class="b tl pv1 ph2 bg-near-white">Interest</th>
     </tr>
     </thead>
     <tbody>
     <tr ng-repeat="course in courses | filter:search:strict | orderBy:orderProp as filteredCourses">
-        <td class="code pv1 ph2 v-top w-10">{{ course.code }}</td>
+        <td class="code pv1 ph2 v-top w-10 bg-near-white">{{ course.code }}</td>
         <td class="pv1 ph2 v-top w-20">{{ course.title }}</td>
         <td class="pv1 ph2 v-top">{{ course.description }}</td>
         <td><a href="#" ng-click="toggleInterest($event)">Interested?</a></td>
