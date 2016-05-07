@@ -20,6 +20,16 @@ angular.module('courseComparator.courses', ['ngRoute', 'LocalStorageModule'])
 
         $scope.$watch('interests', function () {
             localStorageService.set('interests', $scope.interests);
+
+            $scope.courses = _($scope.courses).each(function(element, index) {
+                var isInterest = false;
+
+                if (_($scope.interests).findWhere(element)) {
+                    isInterest = true;
+                }
+
+                _.extend(element, {isInterest: isInterest});
+            })
         }, true);
 
         $scope.disciplineId = $routeParams.disciplineId;
@@ -43,9 +53,9 @@ angular.module('courseComparator.courses', ['ngRoute', 'LocalStorageModule'])
 
             var course = _($scope.courses).findWhere({code: courseCode});
 
-            $scope.interests.push(course);
+            course['isInterest'] = true;
 
-            $scope.courses[_($scope.courses).indexOf(course)]['isInterest'] = true;
+            $scope.interests = _($scope.interests).push(course);
         };
 
         $scope.removeInterest = function(courseCode, e) {
@@ -54,7 +64,5 @@ angular.module('courseComparator.courses', ['ngRoute', 'LocalStorageModule'])
             var course = _($scope.interests).findWhere({code: courseCode});
 
             $scope.interests = _($scope.interests).without(course);
-
-            $scope.courses[_($scope.courses).indexOf(course)]['isInterest'] = false;
         }
     }]);
