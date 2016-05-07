@@ -25,7 +25,15 @@ angular.module('courseComparator.courses', ['ngRoute', 'LocalStorageModule'])
         $scope.disciplineId = $routeParams.disciplineId;
 
         $http.get('data/' + $scope.disciplineId + '.json').success(function (data) {
-            $scope.courses = data;
+            $scope.courses = _(data).each(function(element, index) {
+                var isInterest = false;
+
+                if (_($scope.interests).findWhere(element)) {
+                    isInterest = true;
+                }
+
+                _.extend(element, {isInterest: isInterest});
+            });
         });
 
         $scope.orderProp = ['code'];
@@ -33,6 +41,10 @@ angular.module('courseComparator.courses', ['ngRoute', 'LocalStorageModule'])
         $scope.toggleInterest = function(courseCode, e) {
             e.preventDefault();
 
-            $scope.interests.push(_($scope.courses).findWhere({code: courseCode}));
+            var course = _($scope.courses).findWhere({code: courseCode});
+
+            $scope.interests.push(course);
+
+            $scope.courses[_($scope.courses).indexOf(course)]['isInterest'] = true;
         };
     }]);
