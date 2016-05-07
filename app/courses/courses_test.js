@@ -39,10 +39,6 @@ describe('courseComparator.courses module', function() {
             expect(scope.disciplineId).toEqual('TES');
         }));
 
-        it('should have a storage method', inject(function () {
-            expect(scope.$storage).toBeDefined();
-        }));
-
         it('should have data', inject(function() {
             expect(scope.courses).toBeUndefined();
 
