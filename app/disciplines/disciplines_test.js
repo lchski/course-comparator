@@ -11,7 +11,7 @@ describe('courseComparator.disciplines module', function() {
       $httpBackend = _$httpBackend_;
       $httpBackend
         .expectGET('data/disciplines.json')
-        .respond(['TES', 'FOO']);
+        .respond(["TES", "FOO"]);
 
       scope = $rootScope.$new();
       ctrl = $controller('DisciplinesCtrl', {$scope: scope});
@@ -26,7 +26,7 @@ describe('courseComparator.disciplines module', function() {
 
       $httpBackend.flush();
 
-      expect(scope.disciplines).toEqual(['TES', 'FOO']);
+      expect(scope.disciplines).toEqual(["TES", "FOO"]);
     }));
 
   });
