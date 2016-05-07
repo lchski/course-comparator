@@ -9,6 +9,8 @@ angular.module('courseComparator.interests', ['ngRoute'])
         });
     }])
 
-    .controller('InterestsCtrl', ['$scope', '$http', function($scope, $http) {
+    .controller('InterestsCtrl', ['$scope', function($scope) {
+        $scope.toggleInterest = function() {
 
+        };
     }]);
