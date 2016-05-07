@@ -30,7 +30,7 @@ angular.module('courseComparator.courses', ['ngRoute', 'LocalStorageModule'])
 
         $scope.orderProp = ['code'];
 
-        $scope.toggleInterest = function(e) {
+        $scope.toggleInterest = function(courseCode, e) {
             e.preventDefault();
 
             console.log(e);
