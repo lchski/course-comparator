@@ -22,8 +22,9 @@
     </thead>
     <tbody>
     <tr ng-repeat="course in courses | filter:search:strict | orderBy:orderProp">
-        <td class="code pv1 ph2">{{ course.code }}</td>
-        <td class="pv1 ph2">{{ course.title }}</td>
+        <td class="code pv1 ph2 v-top">{{ course.code }}</td>
+        <td class="pv1 ph2 v-top">{{ course.title }}</td>
+        <td class="pv1 ph2 v-top">{{ course.description }}</td>
     </tr>
     </tbody>
 </table>
