@@ -2,6 +2,10 @@
 
 angular.module('courseComparator.courses', ['ngRoute', 'LocalStorageModule'])
 
+    .config(['localStorageServiceProvider', function (localStorageServiceProvider) {
+        localStorageServiceProvider.setPrefix('uocc');
+    }])
+
     .config(['$routeProvider', function ($routeProvider) {
         $routeProvider.when('/disciplines/:disciplineId', {
             templateUrl: 'courses/courses.html',
