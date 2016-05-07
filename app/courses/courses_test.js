@@ -10,45 +10,50 @@ describe('courseComparator.courses module', function() {
         beforeEach(inject(function(_$httpBackend_, $rootScope, $controller) {
             $httpBackend = _$httpBackend_;
             $httpBackend
-                .expectGET('data/data.json')
-                .respond({
-                    "HIS": [
-                        {
-                            "code": "HIS1101",
-                            "description": "Survey of the political, social and cultural evolution of Canada, from its origins to the present.",
-                            "language": "English",
-                            "restriction": "",
-                            "title": "The Making of Canada",
-                            "year": "1"
-                        }
-                    ]
-                });
+                .expectGET('data/TES.json')
+                .respond([
+                    {
+                        "code": "TES1101",
+                        "description": "A test course.",
+                        "language": "English",
+                        "restriction": "",
+                        "title": "Test Course",
+                        "year": "1"
+                    }
+                ]);
 
             scope = $rootScope.$new();
-            ctrl = $controller('CoursesCtrl', {$scope: scope});
+            ctrl = $controller('CoursesCtrl', {
+                $scope: scope,
+                $routeParams: {
+                    disciplineId: 'TES'
+                }
+            });
         }));
 
         it('should ....', inject(function() {
             expect(ctrl).toBeDefined();
         }));
 
+        it('should set the discipline id', inject(function() {
+            expect(scope.disciplineId).toEqual('TES');
+        }));
+
         it('should have data', inject(function() {
-            expect(scope.disciplinesAndCourses).toBeUndefined();
+            expect(scope.courses).toBeUndefined();
 
             $httpBackend.flush();
 
-            expect(scope.disciplinesAndCourses).toEqual({
-                "HIS": [
-                    {
-                        "code": "HIS1101",
-                        "description": "Survey of the political, social and cultural evolution of Canada, from its origins to the present.",
-                        "language": "English",
-                        "restriction": "",
-                        "title": "The Making of Canada",
-                        "year": "1"
-                    }
-                ]
-            });
+            expect(scope.courses).toEqual([
+                {
+                    "code": "TES1101",
+                    "description": "A test course.",
+                    "language": "English",
+                    "restriction": "",
+                    "title": "Test Course",
+                    "year": "1"
+                }
+            ]);
         }));
 
         it('should sort by course code', inject(function() {

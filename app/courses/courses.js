@@ -12,8 +12,8 @@ angular.module('courseComparator.courses', ['ngRoute'])
     .controller('CoursesCtrl', ['$scope', '$routeParams', '$http', function ($scope, $routeParams, $http) {
         $scope.disciplineId = $routeParams.disciplineId;
 
-        $http.get('data/data.json').success(function (data) {
-            $scope.disciplinesAndCourses = data;
+        $http.get('data/' + $scope.disciplineId + '.json').success(function (data) {
+            $scope.courses = data;
         });
 
         $scope.orderProp = ['code'];
