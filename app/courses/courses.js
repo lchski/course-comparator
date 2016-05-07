@@ -29,20 +29,14 @@ angular.module('courseComparator.courses', ['ngRoute', 'LocalStorageModule'])
                 }
 
                 _.extend(element, {isInterest: isInterest});
-            })
+            });
         }, true);
 
         $scope.disciplineId = $routeParams.disciplineId;
 
         $http.get('data/' + $scope.disciplineId + '.json').success(function (data) {
             $scope.courses = _(data).each(function(element, index) {
-                var isInterest = false;
-
-                if (_($scope.interests).findWhere(element)) {
-                    isInterest = true;
-                }
-
-                _.extend(element, {isInterest: isInterest});
+                _.extend(element, _($scope.interests).findWhere(element));
             });
         });
 
