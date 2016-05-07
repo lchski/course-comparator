@@ -12,7 +12,6 @@
     "angular-mocks": "~1.4.0",
     "html5-boilerplate": "~5.2.0",
     "ngstorage": "^0.3.10",
-    "angular-local-storage": "^0.2.7",
-    "angular-toArrayFilter": "^1.0.1"
+    "angular-local-storage": "^0.2.7"
   }
 }
