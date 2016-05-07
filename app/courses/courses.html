@@ -24,7 +24,7 @@
     </tr>
     </thead>
     <tbody>
-    <tr ng-repeat="(code, course) in courses | filter:search:strict | orderBy:orderProp as filteredCourses">
+    <tr ng-repeat="(code, course) in courses | toArray | filter:search:strict | orderBy:orderProp as filteredCourses">
         <td class="code pv1 ph2 v-top w-10 bg-near-white">{{ course.code }}</td>
         <td class="pv1 ph2 v-top w-20">{{ course.title }}</td>
         <td class="pv1 ph2 v-top">{{ course.description }}</td>

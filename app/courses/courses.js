@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('courseComparator.courses', ['ngRoute', 'LocalStorageModule'])
+angular.module('courseComparator.courses', ['ngRoute', 'LocalStorageModule', 'angular-toArrayFilter'])
 
     .config(['localStorageServiceProvider', function (localStorageServiceProvider) {
         localStorageServiceProvider.setPrefix('uocc');
