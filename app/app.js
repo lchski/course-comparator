@@ -4,7 +4,8 @@
 angular.module('courseComparator', [
   'ngRoute',
   'courseComparator.disciplines',
-  'courseComparator.courses'
+  'courseComparator.courses',
+  'courseComparator.interests'
 ]).
 config(['$routeProvider', function($routeProvider) {
   $routeProvider
