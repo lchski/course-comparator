@@ -1,0 +1,34 @@
+<h2>Interests</h2>
+<input ng-model="search.$" placeholder="General search...">
+<select ng-model="search.language">
+    <option value="">---No language filter---</option>
+    <option value="English">English</option>
+    <option value="French">French</option>
+    <option value="Bilingual/Unofficial/Unspecified">Bilingual/Unofficial/Unspecified</option>
+</select>
+<select ng-model="search.year">
+    <option value="">---No year filter---</option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+</select>
+{{ filteredInterests.length }} courses found
+<table>
+    <thead>
+    <tr>
+        <th class="b tl pv1 ph2 bg-near-white">Code</th>
+        <th class="b tl pv1 ph2 bg-near-white">Title</th>
+        <th class="b tl pv1 ph2 bg-near-white">Description</th>
+        <th class="b tl pv1 ph2 bg-near-white">Interest</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="course in interests | filter:search:strict | orderBy:orderProp as filteredInterests">
+        <td class="code pv1 ph2 v-top w-10 bg-near-white">{{ course.code }}</td>
+        <td class="pv1 ph2 v-top w-20">{{ course.title }}</td>
+        <td class="pv1 ph2 v-top">{{ course.description }}</td>
+        <td><a href="#" ng-click="removeInterest(course.code, $event)">Remove</a></td>
+    </tr>
+    </tbody>
+</table>
