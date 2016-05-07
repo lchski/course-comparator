@@ -28,7 +28,10 @@
         <td class="code pv1 ph2 v-top w-10 bg-near-white">{{ course.code }}</td>
         <td class="pv1 ph2 v-top w-20">{{ course.title }}</td>
         <td class="pv1 ph2 v-top">{{ course.description }}</td>
-        <td class="pv1 ph2 v-top w-10"><a href="#" ng-click="toggleInterest(course.code, $event)">Interested?</a></td>
+        <td class="pv1 ph2 v-top w-10">
+            <a href="#" ng-hide="course.isInterest" ng-click="addInterest(course.code, $event)">Interested?</a>
+            <a href="#" ng-show="course.isInterest" ng-click="removeInterest(course.code, $event)">Not interested?</a>
+        </td>
     </tr>
     </tbody>
 </table>

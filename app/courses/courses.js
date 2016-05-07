@@ -38,7 +38,7 @@ angular.module('courseComparator.courses', ['ngRoute', 'LocalStorageModule'])
 
         $scope.orderProp = ['code'];
 
-        $scope.toggleInterest = function(courseCode, e) {
+        $scope.addInterest = function(courseCode, e) {
             e.preventDefault();
 
             var course = _($scope.courses).findWhere({code: courseCode});
@@ -47,4 +47,14 @@ angular.module('courseComparator.courses', ['ngRoute', 'LocalStorageModule'])
 
             $scope.courses[_($scope.courses).indexOf(course)]['isInterest'] = true;
         };
+
+        $scope.removeInterest = function(courseCode, e) {
+            e.preventDefault();
+
+            var course = _($scope.interests).findWhere({code: courseCode});
+
+            $scope.interests = _($scope.interests).without(course);
+
+            $scope.courses[_($scope.courses).indexOf(course)]['isInterest'] = false;
+        }
     }]);
