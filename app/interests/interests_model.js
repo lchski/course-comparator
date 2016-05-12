@@ -13,8 +13,14 @@ angular.module('courseComparator.interestsModel', ['LocalStorageModule'])
             localStorageService.set('interests', interests);
         });
 
-        this.addInterest = function(courseData) {
+        this.addInterest = function(courseData, e) {
+            e.preventDefault();
 
+            courseData['isInterest'] = true;
+
+            this.interests = _(this.interests).push(courseData);
+
+            $rootScope.$broadcast('interestsModel::interestsUpdated', this.interests);
         };
 
         this.removeInterest = function(courseCode, e) {
