@@ -13,4 +13,8 @@ angular.module('courseComparator.interests', ['ngRoute', 'courseComparator.inter
         $scope.interestsModel = interestsModel;
 
         $scope.interests = interestsModel.interests;
+
+        $scope.$on('interestsModel::interestsUpdated', function(event, interests) {
+            $scope.interests = interestsModel.interests;
+        });
     }]);

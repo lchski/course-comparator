@@ -6,18 +6,22 @@ angular.module('courseComparator.interestsModel', ['LocalStorageModule'])
         localStorageServiceProvider.setPrefix('uocc');
     }])
 
-    .service('interestsModel', ['localStorageService', function(localStorageService) {
+    .service('interestsModel', ['$rootScope', 'localStorageService', function($rootScope, localStorageService) {
         this.interests = localStorageService.get('interests') || [];
 
-        // $scope.$watch('interests', function () {
-        //     localStorageService.set('interests', $scope.interests);
-        // }, true);
+        $rootScope.$on('interestsModel::interestsUpdated', function(event, interests) {
+            localStorageService.set('interests', interests);
+        });
 
         this.addInterest = function(courseData) {
 
         };
 
-        this.removeInterest = function(courseCode) {
+        this.removeInterest = function(courseCode, e) {
+            e.preventDefault();
+            
             this.interests = _(this.interests).without(_(this.interests).findWhere({code: courseCode}));
+
+            $rootScope.$broadcast('interestsModel::interestsUpdated', this.interests);
         };
     }]);
