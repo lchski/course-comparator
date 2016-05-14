@@ -1,12 +1,12 @@
 <h2>Interests</h2>
-<input ng-model="search.$" placeholder="General search...">
-<select ng-model="search.language">
+<input ng-model="searchModel.$" placeholder="General search...">
+<select ng-model="searchModel.language">
     <option value="">---No language filter---</option>
     <option value="English">English</option>
     <option value="French">French</option>
     <option value="Bilingual/Unofficial/Unspecified">Bilingual/Unofficial/Unspecified</option>
 </select>
-<select ng-model="search.year">
+<select ng-model="searchModel.year">
     <option value="">---No year filter---</option>
     <option value="1">1</option>
     <option value="2">2</option>
@@ -24,7 +24,7 @@
     </tr>
     </thead>
     <tbody>
-    <tr ng-repeat="course in interests | filter:search:strict | orderBy:orderProp as filteredInterests">
+    <tr ng-repeat="course in interests | filter:searchModel:strict | orderBy:orderProp as filteredInterests">
         <td class="pv2 ph2 v-top lh-title code w-10 bg-near-white">{{ course.code }}</td>
         <td class="pv2 ph2 v-top lh-title w-20">{{ course.title }}</td>
         <td class="pv2 ph2 v-top lh-title">{{ course.description }} <em class="red">{{ course.restriction }}</em></td>

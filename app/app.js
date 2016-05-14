@@ -7,7 +7,8 @@ angular.module('courseComparator', [
         'courseComparator.courses',
         'courseComparator.interests',
         'courseComparator.porter',
-        'courseComparator.interestsModel'
+        'courseComparator.interestsModel',
+        'courseComparator.searchModel'
     ])
     .config(['$routeProvider', function ($routeProvider) {
         $routeProvider

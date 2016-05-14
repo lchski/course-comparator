@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('courseComparator.interests', ['ngRoute', 'courseComparator.interestsModel'])
+angular.module('courseComparator.interests', ['ngRoute', 'courseComparator.interestsModel', 'courseComparator.searchModel'])
 
     .config(['$routeProvider', function($routeProvider) {
         $routeProvider.when('/interests', {
@@ -9,7 +9,7 @@ angular.module('courseComparator.interests', ['ngRoute', 'courseComparator.inter
         });
     }])
 
-    .controller('InterestsCtrl', ['$scope', 'interestsModel', function($scope, interestsModel) {
+    .controller('InterestsCtrl', ['$scope', 'interestsModel', 'searchModel', function($scope, interestsModel, searchModel) {
         $scope.interestsModel = interestsModel;
 
         $scope.interests = interestsModel.interests;
@@ -17,4 +17,6 @@ angular.module('courseComparator.interests', ['ngRoute', 'courseComparator.inter
         $scope.$on('interestsModel::interestsUpdated', function(event, interests) {
             $scope.interests = interestsModel.interests;
         });
+
+        $scope.searchModel = searchModel;
     }]);
