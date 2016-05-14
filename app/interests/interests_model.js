@@ -30,4 +30,10 @@ angular.module('courseComparator.interestsModel', ['LocalStorageModule'])
 
             $rootScope.$broadcast('interestsModel::interestsUpdated', this.interests);
         };
+
+        this.setInterests = function(interests) {
+            this.interests = interests;
+
+            $rootScope.$broadcast('interestsModel::interestsUpdated', this.interests);
+        };
     }]);
